@@ -1,0 +1,115 @@
+
+ <div>    
+   &nbsp;&nbsp;&nbsp;
+              <button data-toggle="pill" href="#home1">Home</button>  
+            <button style="color:black" data-toggle="pill" href="#borrrowhide">Monthly Payment</button>  
+             
+              <div class="tab-content">
+                  <div id="home1" class="tab-pane fade in active" >
+                      <div class="row" id="get_loan_hide" >
+
+                        &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;
+ 
+                        <h3 style="color: #338ecf;">Financial Institution Details</h3>
+      <div class="table-wrapper-2">
+          <table class="table table-responsive-md">
+          <thead class="mdb-color lighten-4">
+            <tr>
+                <th><h4 style="color: black;">Financial Institute Address</h4></th>
+                <th><h4 style="color: black;">Bank Name</h4></th>
+                <th><h4 style="color: black;">Balance</h4></th>
+                <th><h4 style="color: black;">Fixed Int.</h4></th>
+                <th><h4 style="color: black;">GetLoan</h4></th>
+              </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let bank of alldetails;">
+                <td >{{bank.bank_address}}</td>
+                <td >{{bank.bank_name}} </td>
+                <td>{{bank.deposit_amount}}</td>
+                <td>{{bank.loan_interest}}</td>
+                <td> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" (click)="choosefi(bank.bank_address)">GetLoan</button></td>
+              
+              
+            </tr>     
+        </tbody>
+      </table>
+     
+    </div>
+
+          
+            <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Financial Institute</h4>
+                  </div>
+                  <div class="modal-body">
+                      <input type="text" [(ngModel)]="Token_address" class="form-control" placeholder="Token Address" /><br>
+                      <input type="text"  class="form-control" #a value={{_address}} placeholder="Bank Address" readonly/><br>
+                      <input type="text" [(ngModel)]="loan_amount" class="form-control" placeholder="(specify No of Tokens)" /><br>
+                      
+                      <input type="button" class="btn btn-primary" data-dismiss="modal" (click)="req_loan(a.value)" value="GetLoan"/>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+          </div>
+          
+          
+
+
+        <div class="tab-pane fade" id="borrrowhide">                        
+          
+                        <h3 style="color: #338ecf;">Borrowing Loan Details and payment</h3>
+                        
+              <div class="table-wrapper-2">
+                  <table class="table table-responsive-md">
+                  <thead class="mdb-color lighten-4">
+                              <tr>
+                                <th><h4 style="color: black;">Loan Id</h4></th>
+                                <th><h4 style="color: black;">Token Address</h4></th>
+                                <th><h4 style="color: black;">Token value</h4></th>
+                              
+                                <th><h4 style="color: black;">Bank Address</h4></th>
+                             
+                                <th><h4 style="color: black;">Total Amount</h4></th>
+                                <th><h4 style="color: black;">Total Paid Ins.</h4></th>
+                            
+                                <th><h4 style="color: black;">Total Months</h4></th>
+                                <th><h4 style="color: black;">Balance Loan</h4></th>
+                                <th><h4 style="color: black;">Balance Installment</h4></th>
+                                <th><h4 style="color: black;">Payment</h4></th>
+                              </tr>
+                            </thead>
+                            <tbody id="get_loan_list">
+                              <tr *ngFor="let bank of loandetails;">
+                                  <td>{{bank.loanid}}</td>
+                                  <td>{{bank.tokenaddress}} </td>
+                                  <td>{{bank.tokenvalue}}</td>
+                                  <td>{{bank.bankaddress}}</td>
+                                  <td>{{bank.totalamount}}</td>
+                                  <td>{{bank.totalpaidins}}</td>
+                                  <td>{{bank.totalmonth}}</td>
+                                  <td>{{bank.balanceloan}}</td>
+                                  <td>{{bank.balanceins}}</td>
+                                  <td><button class="btn btn-success" (click)="MonthlyPayment(bank.loanid,bank.bankaddress,bank.balanceins)">Payment</button></td>
+                                 
+                              </tr>     
+                            </tbody>
+                          </table>
+                      </div>  
+                      </div>
+       
+              </div>
+
+ </div>  
+      
+
+

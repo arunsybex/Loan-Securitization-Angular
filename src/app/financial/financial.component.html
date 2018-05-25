@@ -1,0 +1,74 @@
+
+
+           <div class="container">
+            
+              <div class="table-wrapper-2">
+                  <table class="table table-responsive-md">
+                  <thead class="mdb-color lighten-4">
+                    <tr>
+                            <th>Financial Institute Address</th>
+                            <th>Bank Name</th>
+                            <th>Balance</th>
+                            <th>Fixed Int</th>
+                        </tr>
+              </thead>
+              <tbody>
+                    <tr *ngFor="let bank of details;">
+                        <td color="white">{{bank.bank_address}}</td>
+                        <td >{{bank.bank_name}} </td>
+                        <td>{{bank.deposit_amount}}</td>
+                        <td>{{bank.loan_interest}}</td>
+                   
+                      
+                    </tr>
+              </tbody>
+            </table>
+           </div>
+           
+          </div>
+          <div class="container">
+           
+               
+              <div class="table-wrapper-2">
+                  <table class="table table-responsive-md">
+                  <thead class="mdb-color lighten-4">
+                        <tr>
+                                <th>Loan Id</th>
+                                <th>Token Address</th>
+                                <th>token value</th>
+                               
+                               
+                                <th>Borrower Address</th>
+                                <th>Total Amount</th>
+                                <th>Total Paid Ins.</th>
+                               
+                                <th>Total Months</th>
+                                <th>Balance Loan</th>
+                                <th>Balance Installment</th>
+                              </tr>
+                  </thead>
+                  <tbody>
+                        <tr *ngFor="let bank of loandetails;">
+                                <td>{{bank.loanid}}</td>
+                                <td>{{bank.tokenaddress}} </td>
+                                <td>{{bank.tokenvalue}}</td>
+                                <td>{{bank.borroweraddress}}</td>
+                                <td>{{bank.totalamount}}</td>
+                                <td>{{bank.totalpaidins}}</td>
+                                <td>{{bank.totalmonth}}</td>
+                                <td>{{bank.balanceloan}}</td>
+                                <td>{{bank.balanceins}}</td>
+                  </tbody>
+                </table>
+               
+              </div>
+              </div>
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 

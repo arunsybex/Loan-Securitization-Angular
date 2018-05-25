@@ -1,0 +1,28 @@
+
+
+
+<div class="container">
+    <h2>Please Register your Investor
+    </h2>
+   
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">REGISTER</button>
+  
+   
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Investor</h4>
+          </div>
+          <div class="modal-body">
+              <input type="text" [(ngModel)]="inves_ether" id="invester_ether_value" class="form-control" placeholder="Invester Ethers"/>
+            <input type="button" class="btn btn-primary" data-dismiss="modal" (click)="inv_reg()" value="Register"/>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
