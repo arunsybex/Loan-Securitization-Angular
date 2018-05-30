@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ContactserviceService}from '../service/contactservice.service';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 declare let window: any;
 import * as Web3 from 'web3';
 @Component({
@@ -21,14 +22,36 @@ export class FinancialregComponent implements OnInit {
   public id1: any;
   public id2;
   public account;
-  constructor(public reg:ContactserviceService,private router:Router)
+  
+  constructor(public reg:ContactserviceService,private router:Router,private spinner: NgxSpinnerService)
   {
    reg.getAccount().then(address=>this.address=address);
   }
-  register_bank(){
+cancel()
+{
+  this.router.navigate(['home']);
+}
+  register_bank()
+  {
    
-   this.reg.register_bank1(this.bank_name,this.loan_interest,this.deposit_amount,this.duration).then((res)=>{
+   this.spinner.show();
+    console.log(this.bank_name,this.loan_interest,this.deposit_amount,this.duration);
+   
 
+   this.reg.register_bank1(this.bank_name,this.loan_interest,this.deposit_amount,this.duration).then((res)=>{
+     
+      console.log("Hash :"+res);
+      if(res === 0)
+        {  
+          this.spinner.hide();
+        }
+        else
+        this.reg.hash(res).then((result) =>
+        {
+          console.log("result : "+ result );  
+          this.spinner.hide();
+          this.router.navigate(['financial']);
+        })
    });
  }
 
@@ -49,6 +72,7 @@ export class FinancialregComponent implements OnInit {
                       clearInterval(this.interval);
                   } else {
                    window.location.reload(true);
+                   // alert('Address Change Detected Please Refresh Page');
                   }
               }
           } else {
@@ -59,6 +83,7 @@ export class FinancialregComponent implements OnInit {
 
       meta.id2 = setInterval(function() {
        meta.reg.getUserBalance().then(balance => this.balance = balance);
+       //meta.alltablework();
    }, 20000);
  }
  ngOnDestroy() {

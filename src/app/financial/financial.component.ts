@@ -28,13 +28,14 @@ export class FinancialComponent implements OnInit {
    {
     reg.getAccount().then(address=>this.address=address);
    }
+  
 
 
 
   ngOnInit() {
     this.reg.getAccount().then(address => this.address = address)
     this.reg.getUserBalance().then(balance => this.balance = balance)
-   
+    console.log(this.address);
 
 
     let meta = this;
@@ -52,7 +53,7 @@ export class FinancialComponent implements OnInit {
                              clearInterval(this.interval);
                          } else {
                           window.location.reload(true);
-                          
+                          // alert('Address Change Detected Please Refresh Page');
                          }
                      }
                  } else {
@@ -63,7 +64,7 @@ export class FinancialComponent implements OnInit {
        
              meta.id2 = setInterval(function() {
               meta.reg.getUserBalance().then(balance => this.balance = balance);
-            
+              //meta.alltablework();
           }, 20000);
         
 
@@ -71,7 +72,9 @@ export class FinancialComponent implements OnInit {
 
         
               this.reg.bank_reg1().then(obj=>{
-             
+                console.log(this.address);
+                console.log("works");
+                console.log(obj);
             
                   this.details.push({"bank_address":this.address,"bank_name":obj[10],"deposit_amount":obj[0],"loan_interest":obj[2]});
                 
@@ -87,7 +90,7 @@ export class FinancialComponent implements OnInit {
                         var c=e*f
                         if(result[0]>0)
                         {
-                          this.loandetails.push({"loanid":result[0],"tokenaddress":result[8],"tokenvalue":result[1],"borroweraddress":result[3],"totalamount":result[4],"totalpaidins":result[5],"totalmonth":result[6],"balanceloan":c,"balanceins":e});
+                          this.loandetails.push({"loanid":result[0],"tokenaddress":result[7],"tokenvalue":result[1],"borroweraddress":result[3],"totalamount":result[4],"totalpaidins":result[5],"totalmonth":result[6],"balanceloan":c,"balanceins":e});
                         }
                         })
                       }

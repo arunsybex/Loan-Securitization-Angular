@@ -28,10 +28,21 @@ export class InverstorComponent implements OnInit {
     inv.getAccount().then(address=>this.address=address);
   }
 
+  // inv_reg(){
+  //   alert("hai");
+  //  console.log(this.inves_ether);
+  //  this.inv.Investorether(this.inves_ether).then((res)=>{
+  //     alert("second")
+  //     console.log(res)
+  //  });
+  // }
+
   pur_pack()
   {
+    alert("hai");
    console.log(this.spvaddress);
    this.inv.purchasepack(this.packageid,this.spvaddress).then((res)=>{
+      alert("second")
       console.log(res)
 
     });

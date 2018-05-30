@@ -1,47 +1,219 @@
-
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <p class="navbar-brand">LOAN SECURITIZATION</p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="4" color="white"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <font size="4" color="white"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Account:</font><input type="text" class="text-line" size="43" value={{address}} style="color: black;" id="account" readonly/>&nbsp;&nbsp;&nbsp;Balance in ETH:</font><input type="text" class="text-line" size="10" value={{balance}} id="balance" style="color:black;" readonly/>
-    </div>
-  
-  </div>
-</nav>
-  
-
- 
-  
-<nav class="navbar navbar-inverse sidebar" role="navigation">
-    <div class="container-fluid">
-	
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#">SECURE</a>
-		</div>
-	
-		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#" routerLink="/home">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li ><a href="#" routerLink="/financial">Financial Institute<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-                <li ><a href="#" routerLink="/Borrower">Borrower<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
-                <li ><a href="#" routerLink="/SPV">SPV<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
-                <li ><a href="#" routerLink="/Investor">Investor<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
-                <li class="dropdown">
-				
-				</li>
-				
-			</ul>
-		</div>
-	</div>
-</nav>
-<div class="main">
-
+<!-- <body>
+<div class="col-sm-3">
+<div id="navbar-wrapper">
+  <header>
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+          <div class="container-fluid">
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#"><font size="4"  style="color: #338ecf;"><img src="./assets/src1.png" alt="English" width="auto" height="36px">LOAN</font><font size="3">SECURITIZATION</font></a>
+              </div>
+              <div id="navbar-collapse" class="collapse navbar-collapse">
+                  <form class="navbar-form navbar-left" role="search">
+                       <div class="input-group">
+                        <!-- Account:<input type="text" class="form-control" value={{address}} placeholder="Address"readonly/>                        Balance in Eth:  <input type="text" class="form-control" value={{balance}} placeholder="Balance"readonly/> -->
+                        <!-- <font size="4"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <font size="4" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Account:</font><input type="text" class="text-line" size="43" value={{address}} style="color: black;" id="account" readonly/>&nbsp;&nbsp;&nbsp;Balance in ETH:</font><input type="text" class="text-line" size="10" value={{balance}} id="balance" style="color:black;" readonly/> --
+                      
+                    </div> 
+                  </form>
+                  <ul class="nav navbar-nav navbar-right">
+                      <li class="dropdown">
+                          <!-- <a id="flag" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              <img src="http://www.country-dialing-codes.net/img/png-country-4x2-fancy-res-1280x960/gb.png" alt="English" width="28px" height="18px">
+                          </a> --
+                          <ul class="dropdown-menu dropdown-menu-flag" role="menu">
+                              <!-- <li>
+                                  <a href="#">
+                                      <img src="http://www.country-dialing-codes.net/img/png-country-4x2-flat-res-640x480/gf.png" alt="Français" width="28px" height="18px">
+                                      <span>Français</span>
+                                  </a>
+                              </li> --
+                          </ul>
+                      </li>
+                      <li class="dropdown">
+                          <!-- <a id="user-profile" href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="http://lorempixel.com/100/100/people/9/" class="img-responsive img-thumbnail img-circle"> Username</a> --
+                          <ul class="dropdown-menu dropdown-block" role="menu">
+                              <!-- <li><a href="#">Profil edition</a></li>
+                              <li><a href="#">Admin</a></li>
+                              <li><a href="#">Logout</a></li> --
+                          </ul>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+  </header>
 </div>
+<div id="wrapper">
+  <div id="sidebar-wrapper">
+      <aside id="sidebar">
+          <ul id="sidemenu" class="sidebar-nav">
+              <li>
+                  <a href="#" routerLink="/home" class="sidebar-title">
+                      <span class="sidebar-icon"><i class="fa fa-dashboard"></i></span>
+                      <a href="#" routerLink="/home" class="sidebar-title">Home</a>
+                      <!-- <span class="sidebar-title">Home</span> --
+                  </a>
+              </li>
+              <li>
+                  <a href="#" routerLink="/financial"  class="sidebar-title">
+                      <span class="sidebar-icon"><i class="fa fa-users"></i></span>
+                      <a href="#" routerLink="/financial"  class="sidebar-title">Financial Institute</a>
+                  </a>
+              </li>
+              <!-- <li>
+                  <a href="#" routerLink="/Borrower" class="sidebar-title">
+                      <span class="sidebar-icon"><i class="fa fa-newspaper-o"></i></span>
+                      <a href="#" routerLink="/Borrower" class="sidebar-title">Borrower</a>
+                    </a>
+                    <ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
+                            <li><a href="#"><i class="fa fa-caret-right"></i>Users</a></li>
+                            <li><a href="#"><i class="fa fa-caret-right"></i>Roles</a></li>
+                        </ul>
+              </li> --
+              <li>
+                    <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-2">
+                        <span class="sidebar-icon"><i class="fa fa-users"></i></span>
+                        <span class="sidebar-title">Borrower</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
+                        <li><a href="#" routerLink="/totalfi" ><i class="fa fa-caret-right"></i>Home</a></li>
+                        <li><a href="#" routerLink="/Monthlypayment" ><i class="fa fa-caret-right"></i>Monthly Payment</a></li>
+                    </ul>
+                </li>
+              <!-- <li>
+                  <a href="#" routerLink="/SPV" class="sidebar-title">
+                      <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+                      <a href="#" routerLink="/SPV" class="sidebar-title">SPV</a>
+                    </a>
+              </li> --
+              <li>
+                    <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-3">
+                        <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+                        <span class="sidebar-title">SPV</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul id="submenu-3" class="panel-collapse collapse panel-switch" role="menu">
+                        <li><a href="#" routerLink="/SPV" ><i class="fa fa-caret-right"></i>Home</a></li>
+                        <li><a href="#" routerLink="/purchaseloan" ><i class="fa fa-caret-right"></i>Purchase Loan</a></li>
+                        <li><a href="#" routerLink="/createpack" ><i class="fa fa-caret-right"></i>Create Pack</a></li>
+                        <li><a href="#" routerLink="/spvpackdetail" ><i class="fa fa-caret-right"></i>SPV Pack Detail</a></li>
+                    </ul>
+                </li>
+              <!-- <li>
+                  <a href="#"  routerLink="/Investor" class="sidebar-title">
+                      <span class="sidebar-icon"><i class="fa fa-terminal"></i></span>
+                      <a href="#" routerLink="/Investor" class="sidebar-title">Investor</a>    
 
+                  </a>
+              </li> --
+              <li>
+                    <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-4">
+                        <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+                        <span class="sidebar-title">Investor</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul id="submenu-4" class="panel-collapse collapse panel-switch" role="menu">
+                        <li><a href="#" routerLink="/Investor" ><i class="fa fa-caret-right"></i>Home</a></li>
+                        <li><a href="#" routerLink="/Purchasepack" ><i class="fa fa-caret-right"></i>Purchase Pack</a></li>
+                        <li><a href="#" routerLink="/Investorpackdetail" ><i class="fa fa-caret-right"></i>Investor Pack Detail</a></li>
+                    </ul>
+                </li>
+          </ul>
+      </aside>            
+  </div>
+  <!-- <main id="page-content-wrapper" role="main">
+  </main> --
+</div>
+</div>
+</body> -->
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- Based on http://bootsnipp.com/snippets/featured/responsive-sidebar-menu -->
+
+<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  
+<nav class="navbar navbar-m2p sidebar" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                    <font size="5"  style="color: #338ecf;"><img src="./assets/src1.png" alt="English" width="auto" height="36px">LOAN</font><font size="4">SECURITIZATION</font>
+            </a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+            <li class="separator">Account Details</li>
+            <a>Account:</a><input type="text" class="form-control" value={{address}} placeholder="Address"readonly/>
+             <a>Balance in Eth:</a><input type="text" class="form-control" value={{balance}} placeholder="Balance"readonly/>
+             <li class="separator">Content</li>
+                <!-- Home -->
+                <!-- <li class="active open"> -->
+                        <li class="">
+                    <a href="#" routerLink="/home" class="sidebar-title">
+                      <span class="pull-right hidden-xs showopacity glyphicon material-icons">av_timer</span>Home
+                  </a>
+                </li>
+                <!-- Financial Institution -->
+                <li class="">
+                        <a href="#" routerLink="/financial"  class="sidebar-title">
+                        <span class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">burst_mode</span>Financial Institution
+                    </a>
+                </li>
+                <!-- Borrower -->
+                <li class="">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">description</span>
+                        Borrower <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li><a href="#" routerLink="/totalfi" ><i class="material-icons">add</i>Home</a></li>
+                        <li><a href="#" routerLink="/Monthlypayment" ><i class="material-icons">add</i>Monthly Payment</a></li>
+                    </ul>
+                </li>
+                <!-- SPV -->
+                <li class="">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">chat_bubble_outline</span>
+                        SPV <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                            <li><a href="#" routerLink="/SPV" ><i class="material-icons">add</i>Home</a></li>
+                            <li><a href="#" routerLink="/purchaseloan" ><i class="material-icons">add</i>Purchase Loan</a></li>
+                            <li><a href="#" routerLink="/createpack" ><i class="material-icons">add</i>Create Pack</a></li>
+                            <li><a href="#" routerLink="/spvpackdetail" ><i class="material-icons">add</i>SPV Pack Detail</a></li>
+                    </ul>
+                </li>
+                <!-- Investor -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon material-icons">label</span>
+                        Investor <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                            <li><a href="#" routerLink="/Investor" ><i class="material-icons">add</i>Home</a></li>
+                            <li><a href="#" routerLink="/Purchasepack" ><i class="material-icons">add</i>Purchase Pack</a></li>
+                            <li><a href="#" routerLink="/Investorpackdetail" ><i class="material-icons">add</i>Investor Pack Detail</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

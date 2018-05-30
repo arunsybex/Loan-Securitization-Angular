@@ -58,7 +58,7 @@ export class HeaderComponent implements OnInit
        meta.id2 = setInterval(function() 
        {
         meta.take.getUserBalance().then(balance => this.balance = balance);
-       
+        //meta.alltablework();
       }, 20000);
   }
   ngOnDestroy() 

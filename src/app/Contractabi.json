@@ -3,19 +3,11 @@
 		"constant": false,
 		"inputs": [
 			{
-				"name": "_token",
-				"type": "address"
-			},
-			{
-				"name": "bank_address",
-				"type": "address"
-			},
-			{
-				"name": "tokenvalue",
-				"type": "uint256"
+				"name": "_loanId",
+				"type": "uint256[]"
 			}
 		],
-		"name": "req_loan",
+		"name": "createPacking",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -24,42 +16,10 @@
 	{
 		"constant": false,
 		"inputs": [],
-		"name": "SPV_ether",
+		"name": "Investor_ether",
 		"outputs": [],
 		"payable": true,
 		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "ln_id",
-				"type": "uint256"
-			},
-			{
-				"name": "fiaddress",
-				"type": "address"
-			}
-		],
-		"name": "settlement",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "show_registers",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address[]"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -75,15 +35,6 @@
 			}
 		],
 		"name": "purchase_loan",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "Investor_ether",
 		"outputs": [],
 		"payable": true,
 		"stateMutability": "payable",
@@ -133,106 +84,49 @@
 		"constant": false,
 		"inputs": [
 			{
-				"name": "_loanId",
-				"type": "uint256[]"
+				"name": "_token",
+				"type": "address"
+			},
+			{
+				"name": "bank_address",
+				"type": "address"
+			},
+			{
+				"name": "tokenvalue",
+				"type": "uint256"
 			}
 		],
-		"name": "createPacking",
+		"name": "req_loan",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"constant": true,
+		"constant": false,
 		"inputs": [
 			{
-				"name": "",
+				"name": "ln_id",
 				"type": "uint256"
-			}
-		],
-		"name": "spv_reg",
-		"outputs": [
+			},
 			{
-				"name": "",
+				"name": "fiaddress",
 				"type": "address"
 			}
 		],
-		"payable": false,
-		"stateMutability": "view",
+		"name": "settlement",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
-		"constant": true,
+		"constant": false,
 		"inputs": [],
-		"name": "spv_registers",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address[]"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "spv_details",
-		"outputs": [
-			{
-				"name": "initial_spv_ether",
-				"type": "uint256"
-			},
-			{
-				"name": "spv_loan",
-				"type": "uint256"
-			},
-			{
-				"name": "available_pack",
-				"type": "uint256"
-			},
-			{
-				"name": "spv_id",
-				"type": "uint256"
-			},
-			{
-				"name": "spvlnid",
-				"type": "uint256"
-			},
-			{
-				"name": "packln_id",
-				"type": "uint256"
-			},
-			{
-				"name": "packid",
-				"type": "uint256"
-			},
-			{
-				"name": "add",
-				"type": "address"
-			},
-			{
-				"name": "invsadd",
-				"type": "address"
-			},
-			{
-				"name": "fiadd",
-				"type": "address"
-			},
-			{
-				"name": "name",
-				"type": "bytes"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
+		"name": "SPV_ether",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -311,6 +205,112 @@
 			{
 				"name": "fins",
 				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "show_registers",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "spv_details",
+		"outputs": [
+			{
+				"name": "initial_spv_ether",
+				"type": "uint256"
+			},
+			{
+				"name": "spv_loan",
+				"type": "uint256"
+			},
+			{
+				"name": "available_pack",
+				"type": "uint256"
+			},
+			{
+				"name": "spv_id",
+				"type": "uint256"
+			},
+			{
+				"name": "spvlnid",
+				"type": "uint256"
+			},
+			{
+				"name": "packln_id",
+				"type": "uint256"
+			},
+			{
+				"name": "packid",
+				"type": "uint256"
+			},
+			{
+				"name": "add",
+				"type": "address"
+			},
+			{
+				"name": "invsadd",
+				"type": "address"
+			},
+			{
+				"name": "fiadd",
+				"type": "address"
+			},
+			{
+				"name": "name",
+				"type": "bytes"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "spv_reg",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "spv_registers",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address[]"
 			}
 		],
 		"payable": false,

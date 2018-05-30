@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import * as Web3 from 'web3';
 
 declare let require: any;
@@ -15,9 +15,9 @@ export class ContactserviceService
   private _web3: any;
 
   private _tokenContract: any;
-  private _tokenContractAddress: string = "0x2c11356f1b0cb8c3834b0ad9cfbdd17ff32fb503"
+  private _tokenContractAddress: string = "0x73e0c40249c6a0e436cf4cce872d0e4b18fde9f3"
 
-constructor() 
+constructor(private router:Router) 
 {
     if (typeof window.web3 !== 'undefined') 
     {
@@ -52,7 +52,7 @@ constructor()
 			});
     this._tokenContract = this._web3.eth.contract(tokenAbi).at(this._tokenContractAddress);
 }
-
+//account address working//
 public async getAccount(): Promise<string> 
 {
     if (this._account == null) {
@@ -78,6 +78,7 @@ public async getAccount(): Promise<string>
   
     return Promise.resolve(this._account);
   }
+//account balance working//
     public async getUserBalance(): Promise<number> 
     {
       let account = await this.getAccount();  
@@ -94,19 +95,19 @@ public async getAccount(): Promise<string>
         let account:string = '';
         let meta = this;
         await meta.getAccount().then(address => this.account = address); 
-       
      return new Promise((resolve, reject) => {
         let _web3 = this._web3;
-        meta._tokenContract.spv_details.call(this.account,function (error,result) {
+        meta._tokenContract.spv_details(this.account,function (error,result) {
           if(error){    
             reject(error); 
           }    
           else
           {
-            
+            console.log(meta.account);
+            console.log(result[9]);
             if(result[9] === meta.account)
             {
-             
+              console.log(result[9] === meta.account );
             }
           }  
           resolve(result[9] === meta.account);
@@ -118,19 +119,19 @@ public async getAccount(): Promise<string>
         let account:string = '';
         let meta = this;
         await meta.getAccount().then(address => this.account = address); 
-        
      return new Promise((resolve, reject) => {
         let _web3 = this._web3;
-        meta._tokenContract.spv_details.call(this.account,function (error,result) {
+        meta._tokenContract.spv_details(this.account,function (error,result) {
           if(error){    
             reject(error); 
           }    
           else
           {
-           
+            console.log(meta.account);
+            console.log(result[7]);
             if(result[7] === meta.account)
             {
-             
+              console.log(result[7] === meta.account );
             }
           }  
           resolve(result[7] === meta.account);
@@ -139,22 +140,23 @@ public async getAccount(): Promise<string>
       }
    
 
-      public async investor_check_registeration(): Promise<boolean> {                                       //checking admin
+      public async investor_check_registeration(): Promise<boolean> { //authGurad checking
         let account:string = '';
         let meta = this;
         await meta.getAccount().then(address => this.account = address); 
      return new Promise((resolve, reject) => {
         let _web3 = this._web3;
-        meta._tokenContract.spv_details.call(this.account,function (error,result) {
+        meta._tokenContract.spv_details(this.account,function (error,result) {
           if(error){    
             reject(error); 
           }    
           else
           {
-           
+            console.log(meta.account);
+            console.log(result[8]);
             if(result[8] === meta.account)
             {
-             
+              console.log(result[8] === meta.account );
             }
           }  
           resolve(result[8] === meta.account);
@@ -163,12 +165,13 @@ public async getAccount(): Promise<string>
       }
 
 
+    //fi loan details//
     public async bank_reg1():Promise<object>{
       let meta=this;
       let account = await this.getAccount();
       return new Promise((resolve, reject) => {
         let _web3 = this._web3;
-        this._tokenContract.spv_details.call(account,function (error,result) {
+        this._tokenContract.spv_details(account,function (error,result) {
           if(error){    
             reject(error); 
           }  
@@ -179,12 +182,14 @@ public async getAccount(): Promise<string>
         });
       })as Promise<object>;
     }
+
+    //borrower loan details//
     public async bank_reg(add):Promise<object>{
       let meta=this;
       let account = await this.getAccount();
       return new Promise((resolve, reject) => {
         let _web3 = this._web3;
-        this._tokenContract.spv_details.call(add,function (error,result) {
+        this._tokenContract.spv_details(add,function (error,result) {
           if(error){    
             reject(error); 
           } 
@@ -201,7 +206,7 @@ public async getAccount(): Promise<string>
       let account = await this.getAccount();
       return new Promise((resolve, reject) => {
         let _web3 = this._web3; 
-        this._tokenContract.ln_get.call(add,id,function (error,result) {
+        this._tokenContract.ln_get(add,id,function (error,result) {
          result[4] = meta._web3.fromWei(result[4],"ether")
           resolve(result);
         });
@@ -213,7 +218,7 @@ public async getAccount(): Promise<string>
       let meta = this;
     await this.getAccount().then(address => this._account = address);
      return new Promise((resolve,reject) => {
-      this._tokenContract.show_registers.call(function (err, result1) {
+      this._tokenContract.show_registers(function (err, result1) {
           let gen_id=0;
      resolve(result1);
     })
@@ -222,13 +227,17 @@ public async getAccount(): Promise<string>
     }
 
 
+    //register bank//
    public async register_bank1(a,b,c,d): Promise<any> {
     let account = await this.getAccount();
     return new Promise((resolve, reject) => {
       let _web3 = this._web3;
       this._tokenContract.register.sendTransaction(a,b,d,{from:account,value:this._web3.toWei(c,"ether"),gas: 600000},function (err, result) {
-        if(err != null) {
-          reject(err);
+        if(err != null) 
+        {
+          //reject(err);
+          console.log(err);
+          resolve(0);
         }
        resolve(result);
       });
@@ -236,13 +245,16 @@ public async getAccount(): Promise<string>
   }
 
 
+  //request loan//
   public async request_loan(d,e,f): Promise<any> {
     let account = await this.getAccount();
     return new Promise((resolve, reject) => {
       let _web3 = this._web3;
       this._tokenContract.req_loan(d,e,f,{from:account,gas: 600000},function (err, result) {
-        if(err != null) {
-          reject(err);
+        if(err != null) 
+        {
+          //reject(err);
+          resolve(0);
         }
        resolve((result));
       });
@@ -250,14 +262,17 @@ public async getAccount(): Promise<string>
   }
 
 
+  //monthly payment//
   public async  MonthlyPayment(d,e,f): Promise<any> {
     let account = await this.getAccount();
   
     return new Promise((resolve, reject) => {
       let _web3 = this._web3;
       this._tokenContract.settlement(d,e,{from:account,value:this._web3.toWei(f,"ether"),gas: 600000},function (err, result) {
-        if(err != null) {
-          reject(err);
+        if(err != null) 
+        {
+          //reject(err);
+          resolve(0);
         }
   
        resolve((result));
@@ -275,7 +290,8 @@ public async getAccount(): Promise<string>
         {
           if(err != null) 
           {
-            reject(err);
+            //reject(err);
+            resolve(0)
           }
           resolve(result);
         });
@@ -292,7 +308,8 @@ public async getAccount(): Promise<string>
         {
           if(err != null) 
           {
-            reject(err);
+            //reject(err);
+            resolve(0);
           }
           resolve(result);
         });
@@ -304,24 +321,30 @@ public async getAccount(): Promise<string>
     public async createPack(a): Promise<number[]> 
     {
       let account = await this.getAccount();
+
       return new Promise((resolve,reject) => {
         this._tokenContract.createPacking(a,{from:account,gas: 600000},function (err, result) 
         {
           if(err != null) 
           {
-            reject(err);
+            //reject(err);
+            console.log([0]);
+            
+            resolve([0]);
+          
           }
           resolve(result);
         });
       }) as Promise<number[]>;
      }
 
+
      public async spv_reg1():Promise<object>{
       let meta=this;
       let account = await this.getAccount();
       return new Promise((resolve, reject) => {
         let _web3 = this._web3;
-        this._tokenContract.spv_details.call(account,function (error,result) { 
+        this._tokenContract.spv_details(account,function (error,result) { 
           if(error){    
             reject(error);
           }
@@ -336,7 +359,7 @@ public async getAccount(): Promise<string>
       let meta = this;
     await this.getAccount().then(address => this._account = address);
      return new Promise((resolve,reject) => {
-      this._tokenContract.spv_registers.call(function (err, result1) {
+      this._tokenContract.spv_registers(function (err, result1) {
           let gen_id=0;
      resolve(result1);
     })
@@ -348,16 +371,14 @@ public async getAccount(): Promise<string>
       let account = await this.getAccount();
       return new Promise((resolve, reject) => {
         let _web3 = this._web3;
-      
         this._tokenContract.loanadd(add,function (error,result) {
-        
           resolve(result);
         });
       })as Promise<object>;
     }
     //investor ether//
 
-    public async Investorether(a):Promise<object>{
+    public async Investorether(a):Promise<any>{
           let meta=this;
           let account = await this.getAccount();
           return new Promise((resolve, reject) => {
@@ -366,14 +387,16 @@ public async getAccount(): Promise<string>
             
             this._tokenContract.Investor_ether( {from:account,value:this._web3.toWei(a,"ether"),gas: 600000},function (error, result) {
               
-              if(error){    
-                reject(error); 
+              if(error)
+              {    
+                //reject(error);
+                resolve(0);
               } 
           
          
               resolve(result);
             });
-          })as Promise<object>;
+          })as Promise<any>;
         }
     
     
@@ -405,7 +428,7 @@ public async getAccount(): Promise<string>
     
     
     //purchase pack//
-    public async purchasepack(a,b):Promise<object>{
+    public async purchasepack(a,b):Promise<any>{
       let meta=this;
       let account = await this.getAccount();
       return new Promise((resolve, reject) => {
@@ -414,22 +437,23 @@ public async getAccount(): Promise<string>
         
         this._tokenContract.purchase_pack(a,b, {from:account,gas: 600000},function (error, result) {
          
-        
-          if(error){    
-            reject(error); 
-          } 
-      
+          if(error!= null) 
+          {
+            //reject(err);
+            resolve(0);
+          }
+          resolve(result);
      
           resolve(result);
         });
-      })as Promise<object>;  
+      })as Promise<any>;  
     }
 
     public async spv_details(): Promise<string[]> {
       let meta = this;
     await this.getAccount().then(address => this._account = address);
      return new Promise((resolve,reject) => {
-      this._tokenContract.spv_registers.call(function (err, result1) {
+      this._tokenContract.spv_registers(function (err, result1) {
      resolve(result1);
     })
      }) as Promise<string[]>;
@@ -441,7 +465,7 @@ public async getAccount(): Promise<string>
       let account = await this.getAccount();
       return new Promise((resolve, reject) => {
         let _web3 = this._web3;
-        this._tokenContract.spv_details.call(add,function (error,result) { 
+        this._tokenContract.spv_details(add,function (error,result) { 
           if(error){    
             reject(error);
           }
@@ -462,6 +486,44 @@ public async getAccount(): Promise<string>
         });
       })as Promise<object>;
     } 
+
+
+    public async hash(a): Promise<string> 
+    {
+      let meta = this;
+      return new Promise((resolve, reject) => {
+    
+        var accountInterval = setInterval(function()
+        {
+          meta._web3.eth.getTransactionReceipt(a,function(err,result){
+            if(err != null) {
+            reject(err);
+            }
+    
+            if(result !== null)
+            {
+              clearInterval(accountInterval);
+              // console.log("obj 1 :"+result);
+    
+              if(result.status == 0x1)
+              {
+                // console.log("obj "+result.status)
+                resolve("Success");
+                meta.router.navigate(['']);
+                // window.location.reload();
+              }
+              else
+              {
+                // console.log("obj "+result.status)
+                resolve("Failed");
+                meta.router.navigate(['']);
+                // window.location.reload();
+              }
+            }
+          })
+        },100)
+      }) as Promise<string>;
+    }
     
 }
   

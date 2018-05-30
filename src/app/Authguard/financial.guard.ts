@@ -13,7 +13,7 @@ export class FinancialGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       return this.cs.fi_check_registeration().then(registered => {
-      
+        console.log(registered);
         
         if (!registered){
           this.router.navigate(["fireg"]);
