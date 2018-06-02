@@ -1,0 +1,68 @@
+
+<!-- <div id="main1">
+<div class="container">
+    <h2>Please Register your Investor
+    </h2>
+    <!-- Trigger the modal with a button -->
+    <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">REGISTER</button> -->
+  
+    <!-- Modal --
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Investor</h4>
+          </div>
+          <div class="modal-body">
+              <input type="text" [(ngModel)]="inves_ether" id="invester_ether_value" class="form-control" placeholder="Invester Ethers"/>
+            <input type="button" data-dismiss="modal" class="btn btn-primary" (click)="inv_reg()" value="Register"/>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div> -->
+  <br><br><br>
+  <div class="container" style="border:3px solid #428bca;;background:white">
+      <h1>Register The Investor Here...</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr style="border:1px solid #428bca;">
+      <form [formGroup]="angForm" novalidate>
+  
+        <div class="form-group">
+            <label>Deposit Amount</label>
+            <input class="form-control" formControlName="amt" type="text" placeholder="Enter the amount in Ether" #a>
+        </div>
+        <div *ngIf="angForm.controls['amt'].invalid && (angForm.controls['amt'].dirty || angForm.controls['amt'].touched)" class="alert alert-danger" >
+            <div *ngIf="angForm.controls['amt'].errors.required">
+              Deposit is required.
+            </div>
+        </div>
+        <button type="submit"
+            [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary" (click)="inv_reg(a.value)">Register
+        </button>
+        <button type="submit" class="btn btn-danger" (click)="cancel()">Cancel</button>
+  </form>
+<!--   
+      <label for="Bank Name"><b>Deposit Amount</b></label>
+      <input type="text" [(ngModel)]="inves_ether" id="invester_ether_value" class="form-control" placeholder="Deposit Amount"/>
+      <div class="clearfix">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-primary"  (click)="inv_reg()">Register</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button>
+      </div> -->
+    </div>
+
+
+<ngx-spinner
+      bdColor="rgba(51,51,51,0.8)"
+      size="medium"
+      color="#fff"
+      loadingText="Loading..."
+      type="ball-scale-multiple">
+</ngx-spinner>
+
+<ngx-spinner></ngx-spinner>
