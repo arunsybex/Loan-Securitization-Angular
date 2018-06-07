@@ -96,36 +96,37 @@ export class SPVComponent implements OnInit
       })
       
   })
-this.spv.borrower_view_fi().then(obj=>{
-  obj.forEach(item => {
-      this.spv.bank_reg(item).then(val=> {
-        for(var j=val[3].toNumber();j<val[4].toNumber();j++){
-          this.spv.loandetails(item,j).then(result=> {
+        this.spv.borrower_view_fi().then(obj=>{
+          obj.forEach(item => {
+              this.spv.bank_reg(item).then(val=> {
+                for(var j=val[3].toNumber();j<val[4].toNumber();j++){
+                  this.spv.loandetails(item,j).then(result=> {
+                
+                  if(this.address==result[3])
+                  {
+                  
+                    this.purdetails.push({"loanid":result[0],"tokenaddress":result[8],"tokenvalue":result[1],"bankaddress":result[2],"totalamount":result[4]});
+                  }
+                  })
+                }
+          })
+          })
+          
+        })
         
-          if(this.address==result[3])
-          {
-           
-            this.purdetails.push({"loanid":result[0],"tokenaddress":result[8],"tokenvalue":result[1],"bankaddress":result[2],"totalamount":result[4]});
-          }
+        this.spv.spv_reg1().then((res)=>{
+          
+          for(var i=res[5].toNumber();i<=res[6].toNumber();i++){
+            this.spv.loandetails(res[7],i).then((result)=>{
+              let a=result[1]/1000000000000000000;
+              if(a>0)
+              {
+              this.packdetails.push({"packid":result[0],"tokenvalue":a});
+              }
           })
         }
-  })
-  })
-  
-})
-this.spv.spv_reg1().then((res)=>{
-   
-  for(var i=res[5].toNumber();i<=res[6].toNumber();i++){
-    this.spv.loandetails(res[7],i).then((result)=>{
-      let a=result[1]/1000000000000000000;
-      if(a>0)
-      {
-      this.packdetails.push({"packid":result[0],"tokenvalue":a});
-      }
-  })
-}
-});
-   
-}
+        });
+          
+        }
 
 }

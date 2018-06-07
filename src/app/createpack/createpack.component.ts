@@ -160,8 +160,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
             })
               })
               this.spv.investortable1(this.address).then(result1=> { 
-                this.loan=result1[1];
-                console.log(result1[1])
+                this.loan=result1[3];
+                console.log(result1[3])
                  })
             }
       })

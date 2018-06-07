@@ -15,7 +15,7 @@ export class ContactserviceService
   private _web3: any;
 
   private _tokenContract: any;
-  private _tokenContractAddress: string = "0xf840e31f20e8ca0a4e3a01d08af6daa721eb6dd0"
+  private _tokenContractAddress: string = "0xa0089b0167cfbde3e0f9a9684909a08f3ef6ed12"
 
 constructor(private router:Router) 
 {

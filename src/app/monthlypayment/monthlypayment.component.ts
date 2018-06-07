@@ -65,8 +65,12 @@ export class MonthlypaymentComponent implements OnInit {
             for(var j=val[3].toNumber();j<val[4].toNumber();j++){
               this.get.loandetails(item,j).then(result=> {
               var e=result[4]/val[1];
+              
               var f=result[6]-result[5];
               var c=e*f
+              console.log();
+              
+              console.log(f);
               if(this.address==result[3]&&result[5]<result[6])
               {
                 this.loandetails.push({"loanid":result[0],"tokenaddress":result[8],"tokenvalue":result[1],"bankaddress":result[2],"totalamount":result[4],"totalpaidins":result[5],"totalmonth":result[6],"balanceloan":c,"balanceins":e});

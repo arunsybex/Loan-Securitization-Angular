@@ -3,11 +3,19 @@
 		"constant": false,
 		"inputs": [
 			{
-				"name": "_loanId",
-				"type": "uint256[]"
+				"name": "_token",
+				"type": "address"
+			},
+			{
+				"name": "bank_address",
+				"type": "address"
+			},
+			{
+				"name": "tokenvalue",
+				"type": "uint256"
 			}
 		],
-		"name": "createPacking",
+		"name": "req_loan",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -16,10 +24,42 @@
 	{
 		"constant": false,
 		"inputs": [],
-		"name": "Investor_ether",
+		"name": "SPV_ether",
 		"outputs": [],
 		"payable": true,
 		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "ln_id",
+				"type": "uint256"
+			},
+			{
+				"name": "fiaddress",
+				"type": "address"
+			}
+		],
+		"name": "settlement",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "show_registers",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -35,6 +75,15 @@
 			}
 		],
 		"name": "purchase_loan",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "Investor_ether",
 		"outputs": [],
 		"payable": true,
 		"stateMutability": "payable",
@@ -84,134 +133,17 @@
 		"constant": false,
 		"inputs": [
 			{
-				"name": "_token",
-				"type": "address"
-			},
-			{
-				"name": "bank_address",
-				"type": "address"
-			},
-			{
-				"name": "tokenvalue",
-				"type": "uint256"
+				"name": "_loanId",
+				"type": "uint256[]"
 			}
 		],
-		"name": "req_loan",
+		"name": "createPacking",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "ln_id",
-				"type": "uint256"
-			},
-			{
-				"name": "fiaddress",
-				"type": "address"
-			}
-		],
-		"name": "settlement",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "SPV_ether",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "inv_details",
-		"outputs": [
-			{
-				"name": "invsavailable_pack",
-				"type": "uint256"
-			},
-			{
-				"name": "spvtotal",
-				"type": "uint256"
-			},
-			{
-				"name": "fitotal",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "address"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "ln_get",
-		"outputs": [
-			{
-				"name": "id",
-				"type": "uint256"
-			},
-			{
-				"name": "token",
-				"type": "uint256"
-			},
-			{
-				"name": "bank_address",
-				"type": "address"
-			},
-			{
-				"name": "borr_address",
-				"type": "address"
-			},
-			{
-				"name": "amount",
-				"type": "uint256"
-			},
-			{
-				"name": "count",
-				"type": "uint256"
-			},
-			{
-				"name": "months",
-				"type": "uint256"
-			},
-			{
-				"name": "spvid",
-				"type": "uint256"
-			},
-			{
-				"name": "token_address",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"constant": true,
 		"inputs": [
 			{
@@ -219,27 +151,11 @@
 				"type": "uint256"
 			}
 		],
-		"name": "loanadd",
+		"name": "spv_reg",
 		"outputs": [
 			{
-				"name": "spv",
+				"name": "",
 				"type": "address"
-			},
-			{
-				"name": "invs",
-				"type": "address"
-			},
-			{
-				"name": "fins",
-				"type": "address"
-			},
-			{
-				"name": "spck",
-				"type": "uint256"
-			},
-			{
-				"name": "ipck",
-				"type": "uint256"
 			}
 		],
 		"payable": false,
@@ -249,7 +165,7 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "show_registers",
+		"name": "spv_registers",
 		"outputs": [
 			{
 				"name": "",
@@ -336,14 +252,54 @@
 		"inputs": [
 			{
 				"name": "",
+				"type": "address"
+			},
+			{
+				"name": "",
 				"type": "uint256"
 			}
 		],
-		"name": "spv_reg",
+		"name": "ln_get",
 		"outputs": [
 			{
-				"name": "",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"name": "token",
+				"type": "uint256"
+			},
+			{
+				"name": "bank_address",
 				"type": "address"
+			},
+			{
+				"name": "borr_address",
+				"type": "address"
+			},
+			{
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"name": "count",
+				"type": "uint256"
+			},
+			{
+				"name": "months",
+				"type": "uint256"
+			},
+			{
+				"name": "spvid",
+				"type": "uint256"
+			},
+			{
+				"name": "token_address",
+				"type": "address"
+			},
+			{
+				"name": "count1",
+				"type": "uint256"
 			}
 		],
 		"payable": false,
@@ -352,12 +308,64 @@
 	},
 	{
 		"constant": true,
-		"inputs": [],
-		"name": "spv_registers",
-		"outputs": [
+		"inputs": [
 			{
 				"name": "",
-				"type": "address[]"
+				"type": "address"
+			}
+		],
+		"name": "inv_details",
+		"outputs": [
+			{
+				"name": "invsavailable_pack",
+				"type": "uint256"
+			},
+			{
+				"name": "spvtotal",
+				"type": "uint256"
+			},
+			{
+				"name": "fitotal",
+				"type": "uint256"
+			},
+			{
+				"name": "spvt",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "loanadd",
+		"outputs": [
+			{
+				"name": "spv",
+				"type": "address"
+			},
+			{
+				"name": "invs",
+				"type": "address"
+			},
+			{
+				"name": "fins",
+				"type": "address"
+			},
+			{
+				"name": "spck",
+				"type": "uint256"
+			},
+			{
+				"name": "ipck",
+				"type": "uint256"
 			}
 		],
 		"payable": false,

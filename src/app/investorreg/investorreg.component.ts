@@ -34,11 +34,8 @@ export class InvestorregComponent implements OnInit
   inv_reg(a)
   {
     this.spinner.show();
-    console.log(this.inves_ether);
-   
-
+    console.log(a);
    this.inv.Investorether(a).then((res)=>{
-     
       console.log("Hash :"+res);
       if(res === 0)
         {  

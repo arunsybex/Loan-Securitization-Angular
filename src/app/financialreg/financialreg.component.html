@@ -39,8 +39,8 @@
       </div>
 
       <div class="form-group">
-          <label>Duration</label>
-          <input class="form-control" formControlName="duration" type="text" placeholder="Enter the duration in Months" #d>
+          <label>Duration(Total Months in Numbers)</label>
+          <input class="form-control" formControlName="duration" type="number" placeholder="Enter the duration in Months" #d>
       </div>
       <div *ngIf="angForm.controls['duration'].invalid && (angForm.controls['duration'].dirty || angForm.controls['duration'].touched)" class="alert alert-danger">
         <div *ngIf="angForm.controls['duration'].errors.required">
@@ -53,23 +53,7 @@
       </button>
       <button type="submit" class="btn btn-danger" #b1 (click)="cancel()">Cancel</button>
 </form>
-    <!-- <label for="Bank Name"><b>Bank Name</b></label>
-    <input type="text" [(ngModel)]="bank_name" placeholder="Bank Name" class="form-control" >
-
-    <label for="Loan Interest"><b>Loan Interest</b></label>
-    <input type="text" #int [(ngModel)]="loan_interest" placeholder="Loan Interest" class="form-control">
-
-    <label for="Deposit Amount"><b>Deposit Amount</b></label>
-    <input type="text" [(ngModel)]="deposit_amount" placeholder="Deposit Amount"class="form-control">
-    
-    <label for="Duration"><b>Duration(Months)</b></label>
-    <input type="number" [(ngModel)]="duration" placeholder="Duration" class="form-control">
-    <div class="clearfix">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-primary" (click)="register_bank(int.value)">Register</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button>
-    </div>
-  </div> -->
-
+  
 
 
 <ngx-spinner
