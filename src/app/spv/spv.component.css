@@ -1,0 +1,12 @@
+th,td {
+    text-align:center
+}
+.table-wrapper-2 {
+    display: block;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-y:scroll;
+}
+th{
+    font-style: normal;
+}

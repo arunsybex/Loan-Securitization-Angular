@@ -1,0 +1,185 @@
+<div><h1 style="color:#338ecf;text-align:center;">SPV Details</h1></div> 
+  <br>
+  <br>
+  <div id="spv_registered">
+      <div class="row">
+   <div class="col-sm-4" id="spvdetail_hide">
+     <div class="container" style="border:3px solid #428bca;background:white;overflow-y:auto;height:200px;">
+        <h3 style="color: #338ecf;text-align:center;" >SPV Details</h3>  
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th><h4 style="color: black;">SPV Address</h4></th>
+                <th><h4 style="color: black;">Total Amount</h4></th>
+                <th><h4 style="color: black;">Available Loan</h4></th>
+                <th><h4 style="color: black;">Available pack</h4></th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let spv of details;">
+                    <td >{{spv.spvaddress}} </td>
+                    <td>{{spv.totalamount}}</td>
+                    <td>{{spv.totalloan}}</td>
+                    <td>{{spv.availablepack}}</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+      </div>
+      </div>
+     <br><br><br><br><br>
+      <div class="row">
+        <div class="col-sm-8" id="spv_loan_detail">
+          <div class="container" style="border:3px solid #428bca;background:white;overflow-y:auto;height:450px;">
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 style="color: #338ecf;text-align:center;">SPV Loan Details</h3></div> 
+        <table  class="table table-responsive-md">
+            <thead>
+              <tr>
+                <th><h4 style="color: black;">Loan Id</h4></th>
+                <th><h4 style="color: black;">Token address</h4></th>
+                <th><h4 style="color: black;">Token value</h4></th>
+                <th><h4 style="color: black;">Bank Address</h4></th>
+                <th><h4 style="color: black;">Total Amount</h4></th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let bank of loandetails;">
+                    <td>{{bank.loanid}}</td>
+                    <td>{{bank.tokenaddress}} </td>
+                    <td>{{bank.tokenvalue}}</td>
+                    <td>{{bank.bankaddress}}</td>
+                    <td>{{bank.totalamount}}</td>
+                </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>  
+        </div>
+
+      <!--purchaseloan-->
+<!-- <div id="purchaseloan" class="tab-pane fade">
+<div class="col-sm-8" id="fidetail_hide1">
+<div class="container" style="background:white;overflow-y:scroll;height:350px;">
+  <h3 style="color: #338ecf;">Financial Institute Details</h3> 
+<table  class="table table-responsive-md">
+<thead>
+<tr>
+<th><h4 style="color: black;">Financial Institute Address</h4></th>
+<th><h4 style="color: black;">Bank Name</h4></th>
+<th><h4 style="color: black;">Balance</h4></th>
+<th><h4 style="color: black;">Fixed Int.</h4></th>
+</tr>
+</thead>
+<tbody>
+    <tr *ngFor="let bank of detail;">
+        <td >{{bank.bank_address}}</td>
+        <td >{{bank.bank_name}} </td>
+        <td>{{bank.deposit_amount}}</td>
+        <td>{{bank.loan_interest}}</td>
+        <td><button class="btn btn-primary" (click)="choosefi(bank.bank_address)">choose</button></td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+&nbsp;  &nbsp;  &nbsp;  &nbsp;
+<div class="col-sm-8" id="spv_deta">
+&nbsp;
+<div class="container" style="background:white;overflow-y:scroll;height:400px;">
+  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 style="color: #338ecf;">FI Loan Details</h3></div>
+<table  class="table table-responsive-md">
+    <thead>
+      <tr>
+        <th><h4 style="color: black;">Loan Id</h4></th>
+        <th><h4 style="color: black;">token address</h4></th>
+        <th><h4 style="color: black;">Token Value</h4></th>
+        <th><h4 style="color: black;">Bank Address</h4></th>
+        <th><h4 style="color: black;">Total Amount</h4></th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let spv of purdetails;">
+        <td >{{spv.loanid}}</td>
+        <td >{{spv.tokenaddress}} </td>
+        <td>{{spv.tokenvalue}}</td>
+        <td>{{spv.bankaddress}}</td>
+        <td>{{spv.totalamount}}</td>
+        <td><button class="btn btn-primary" (click)="pur_loan(spv.loanid,spv.bankaddress)">Buy</button></td>
+
+      
+    </tr>
+
+    </tbody>
+  </table>
+  </div>
+</div>  
+
+</div>  
+<!--createpack--
+<div id="createpack" class="tab-pane fade">   
+    <div class="row">   
+<div class="form-group col-sm-4" id="create_pack"> 
+<div class="container" style="background:white;width:370px;">
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 style="color: #338ecf;">Create Pack</h3></div>
+<input type="text" [(ngModel)]="pack_id" #a class="form-control" placeholder="loan id"/>
+<input type="button" class="btn btn-primary" (click)="createPack(a.value)" value="Create"/>
+
+<div id="status"></div>
+</div>
+</div>
+  
+</div>  
+&nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="row">
+<div class="col-sm-8" id="spv_loan_detail">
+  <div class="container" style="background:white;overflow-y:scroll;height:350px;">
+    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 style="color: #338ecf;">SPV Loan Details</h3></div> 
+<table  class="table table-responsive-md">
+    <thead>
+      <tr>
+        <th><h4 style="color: black;">Loan Id</h4></th>
+        <th><h4 style="color: black;">Token address</h4></th>
+        <th><h4 style="color: black;">Token value</h4></th>
+        <th><h4 style="color: black;">Bank Address</h4></th>
+        <th><h4 style="color: black;">Total Amount</h4></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let bank of loandetails;">
+            <td>{{bank.loanid}}</td>
+            <td>{{bank.tokenaddress}} </td>
+            <td>{{bank.tokenvalue}}</td>
+            <td>{{bank.bankaddress}}</td>
+            <td>{{bank.totalamount}}</td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+</div>  
+</div>
+</div>
+<!--spvpack
+<div id="spvpack" class="tab-pane fade">
+    <div class="col-sm-4" id="spv_pack">
+    <div class="container" style="background:white;overflow-y:scroll;height:350px;">
+ <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 style="color: #338ecf;">SPV package details</h3></div> 
+  <table  class="table table-responsive-md">
+      <thead>
+        <tr>
+          <th><h4 style="color: black;">Package Id</h4></th>
+          <th><h4 style="color: black;">token value</h4></th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let spv of packdetails;">
+              <td>{{spv.packid}}</td>
+              <td>{{spv.tokenvalue}} </td>
+              
+          </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+</div> -->
+</div>
+<router-outlet></router-outlet>

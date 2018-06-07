@@ -1,0 +1,49 @@
+<div><h1 style="color:#338ecf;text-align:center;">Monthly Payment</h1></div> 
+<br><br><br>
+<div class="col-sm-12" id="borrrow_hide">
+    <div class="container" style="border:3px solid #428bca;background:white;overflow-y:auto;height:450px;">
+              <h3 style="color: #338ecf;text-align:center;">Borrower Loan Details</h3>
+        <table class="table table-responsive-md">
+        <!-- <thead class="mdb-color lighten-4"> -->
+                    <tr>
+                      <th><h4 style="color: black;">Loan Id</h4></th>
+                      <th><h4 style="color: black;">Token Address</h4></th>
+                      <th><h4 style="color: black;">Token value</h4></th>
+                      <!-- <th><h4 style="color: black;">Token name</h4></th> -->
+                      <th><h4 style="color: black;">Bank Address</h4></th>
+                      <!-- <th><h4 style="color: black;">Borrower Address<h4></th> -->
+                      <th><h4 style="color: black;">Total Amount</h4></th>
+                      <th><h4 style="color: black;">Total Paid Ins.</h4></th>
+                      <!-- <th><h4 style="color: black;">Last Paid</h4></th> -->
+                      <th><h4 style="color: black;">Total Months</h4></th>
+                      <th><h4 style="color: black;">Balance Loan</h4></th>
+                      <th><h4 style="color: black;">Balance Installment</h4></th>
+                    </tr>
+                  <!-- </thead> -->
+                  <tbody id="get_loan_list">
+                    <tr *ngFor="let bank of loandetails;">
+                        <td>{{bank.loanid}}</td>
+                        <td>{{bank.tokenaddress}} </td>
+                        <td>{{bank.tokenvalue}}</td>
+                        <td>{{bank.bankaddress}}</td>
+                        <td>{{bank.totalamount}}</td>
+                        <td>{{bank.totalpaidins}}</td>
+                        <td>{{bank.totalmonth}}</td>
+                        <td>{{bank.balanceloan}}</td>
+                        <td>{{bank.balanceins}}</td>
+                        <td><button  class="btn btn-primary"  (click)="MonthlyPayment(bank.loanid,bank.bankaddress,bank.balanceins)">Payment</button></td>
+                        <!-- <td><a class="btn btn-primary" (click)="delete(data.id)"><i class="fa fa-trash"></i></a></td> -->
+                    </tr>     
+                  </tbody>
+                </table>
+</div>
+   </div>
+
+
+   <ngx-spinner
+              bdColor="rgba(51,51,51,0.8)"
+              size="medium"
+              color="#fff"
+              loadingText="Loading..."
+              type="ball-scale-multiple">
+        </ngx-spinner>

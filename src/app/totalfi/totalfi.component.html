@@ -1,0 +1,85 @@
+<div><h1 style="color:#338ecf;text-align:center;">Loan Request</h1></div> 
+<br><br>
+      <div class="container" style="border:3px solid #428bca;background:white;overflow-y:auto;height:350px;">
+          <div class="col-sm-12" id="fidetail_hide">
+          <h3 style="color: #338ecf;text-align:center;">Financial Institution Details</h3>
+              <table class="table table-responsive-md" >
+              <!-- <thead class="mdb-color lighten-4"> -->
+                <tr>
+                    <th><h4 style="color: black;">Financial Institute Address</h4></th>
+                    <th><h4 style="color: black;">Bank Name</h4></th>
+                    <th><h4 style="color: black;">Balance</h4></th>
+                    <th><h4 style="color: black;">Fixed Int</h4></th>
+                    <th><h4 style="color: black;">Duration</h4></th>
+                    <th><h4 style="color:black">Select FI</h4></th>
+                    
+                  </tr>
+            <!-- </thead> -->
+            <tbody>
+                <tr *ngFor="let bank of alldetails;">
+                    <td >{{bank.bank_address}}</td>
+                    <td >{{bank.bank_name}} </td>
+                    <td>{{bank.deposit_amount}}</td>
+                    <td>{{bank.loan_interest}}</td>
+                    <td>{{bank.duration}}</td>
+                    <td> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="choosefi(bank.bank_address)">GetLoan</button></td>
+                </tr>     
+            </tbody>
+          </table>
+    </div>
+     </div>
+               
+                <div class="modal fade" id="myModal" role="dialog">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Loan Request</h4>
+                      </div>
+                      <div class="modal-body">
+                        <form [formGroup]="angForm" novalidate>
+  
+                          <div class="form-group">
+                              <label>Token Address</label>
+                              <input class="form-control" formControlName="add" type="text" placeholder="Enter the token address" #a>
+                          </div>
+                          <div *ngIf="angForm.controls['add'].invalid && (angForm.controls['add'].dirty || angForm.controls['add'].touched)" class="alert alert-danger" >
+                              <div *ngIf="angForm.controls['add'].errors.required">
+                                Token Address is required.
+                              </div>
+                          </div>
+                          <div class="form-group">
+                            <label>Financial Institution Address</label>
+                          <input type="text"  class="form-control" #b value={{_address}} placeholder="Bank Address" readonly/>
+                          </div>
+                          <div class="form-group">
+                            <label>Number of Token</label>
+                            <input class="form-control" formControlName="num" type="text" placeholder="Enter the number of Tokens" #c>
+                          </div>
+  
+                          <div *ngIf="angForm.controls['num'].invalid && (angForm.controls['num'].dirty || angForm.controls['num'].touched)" class="alert alert-danger" >
+                            <div *ngIf="angForm.controls['num'].errors.required">
+                              Number of Token  is required.
+                            </div>
+                          </div>
+                          <button type="submit"
+                              [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary" (click)="req_loan(a.value,b.value,c.value)">Register
+                          </button>
+                    </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+              
+
+              <ngx-spinner
+              bdColor="rgba(51,51,51,0.8)"
+              size="medium"
+              color="#fff"
+              loadingText="Loading..."
+              type="ball-scale-multiple">
+        </ngx-spinner>

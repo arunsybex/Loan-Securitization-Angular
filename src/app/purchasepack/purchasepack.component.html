@@ -1,0 +1,75 @@
+<div><h1 style="color:#338ecf;text-align:center;">Purchasing Pack</h1></div> 
+<br>
+<br><br>
+    <div class="row">
+        <div class="col-sm-8" id="spvdetail_hide1">
+            <div class="container" style="border:3px solid #428bca;background:white;height:250px;overflow-y:auto;">
+              <div><h3 style="color: #338ecf;text-align:center;">SPV Details</h3></div> 
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th><h4 style="color: black;">SPV Address</h4></th>
+                  <th><h4 style="color: black;">Total Amount</h4></th>
+                  <th><h4 style="color: black;">Available Loan</h4></th>
+                  <th><h4 style="color: black;">Available pack</h4></th>
+                </tr>
+              </thead>
+              <tbody id="spv_list1">
+                <tr *ngFor="let spv of spvdetails;">
+                  <td >{{spv.spvaddress}} </td>
+                  <td>{{spv.totalamount}}</td>
+                  <td>{{spv.totalloan}}</td>
+                  <td>{{spv.availablepack}}</td>
+                  <td><button class="btn btn-primary" (click)="choosespv(spv.spvaddress)">choose</button></td>
+              </tr>
+              </tbody>
+          </table>
+          </div>
+        </div>
+    </div>  
+    <br>
+    <br>
+    <!-- <div class="row">
+        <div class="form-group col-sm-4" id="purchase_pack">
+            <div class="container" style="background:white;height:200px;width:350px;">
+              <div><h3 style="color: #338ecf;text-align:center;">Purchase Pack</h3></div> 
+            <input type="text" [(ngModel)]="spvaddress" id="spv_add" class="form-control" placeholder="SPV Adress"/>
+            <input type="text" [(ngModel)]="packageid" id="pack_id" class="form-control" placeholder="Pack Id"/>
+            <input type="button" class="btn btn-primary" (click)="pur_pack()" value="Purchase"/>
+            <div id="status"></div>
+            </div>
+          </div>
+                    </div> -->
+                    &nbsp;
+                    <div class="row">
+                        <div class="col-sm-2" id="spv_packdetail">
+                            <div class="container" style="border:3px solid #428bca;background:white;height:250px;overflow-y:auto;">
+                              <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 style="color: #338ecf;text-align:center;">SPV package details</h3></div> 
+                            <table class="table table-hover" id="invester_cls">
+                                <thead>
+                                  <tr>
+                                    <th><h4 style="color: black;">SPV Address</h4></th>
+                                    <th><h4 style="color: black;">Package Id</h4></th>
+                                    <th><h4 style="color: black;">Total Amount</h4></th>
+                                  </tr>
+                                </thead>
+                                <tbody id="spvpackdetail_body">
+                                  <tr *ngFor="let spv of packdetails;">
+                                    <td>{{spv.address}}</td>
+                                    <td>{{spv.packid}}</td>
+                                    <td>{{spv.tokenvalue}} </td> 
+                                    <td><button class="btn btn-primary" (click)="pur_pack(spv.address,spv.packid)">Buy</button></td>
+                                </tr>
+                                </tbody>
+                              </table>
+                              </div>
+                          </div>  
+                          </div>
+                          <ngx-spinner
+                          bdColor="rgba(51,51,51,0.8)"
+                          size="medium"
+                          color="#fff"
+                          loadingText="Loading..."
+                          type="ball-scale-multiple">
+                      </ngx-spinner>
+                          

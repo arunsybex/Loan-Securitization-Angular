@@ -1,0 +1,72 @@
+<div><h1 style="color:#338ecf;text-align:center;">Financial Institution Details</h1></div> 
+<br><br><br>
+                <div class="container" style="border:3px solid #428bca;background:white;height:350px;overflow-y:auto;">
+                                <div class="col-sm-12" id="fidetail_hide1">
+                        <h3 style="color: #338ecf;text-align:center;">Financial Institute Details</h3> 
+                <table  class="table table-responsive-md">
+                        <thead>
+                        <tr>
+                        <th><h4 style="color: black;">Financial Institute Address</h4></th>
+                        <th><h4 style="color: black;">Bank Name</h4></th>
+                        <th><h4 style="color: black;">Balance</h4></th>
+                        <th><h4 style="color: black;">Fixed Int</h4></th>
+                        <th><h4 style="color: black;">Duration</h4></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                                <tr *ngFor="let bank of details;">
+                                        <td color="white">{{bank.bank_address}}</td>
+                                        <td >{{bank.bank_name}} </td>
+                                        <td>{{bank.deposit_amount}}</td>
+                                        <td>{{bank.loan_interest}}</td>
+                                        <td>{{bank.duration}}</td>
+                                </tr>
+                        </tbody>
+                </table>
+                </div>
+        </div> 
+
+        <br><br><br>
+
+       
+                <div class="container" style="border:3px solid #428bca;background:white;overflow-y:auto;height:350px;">
+                                <div class="col-sm-12" id="fidetail_hide1">
+                        <h3 style="color: #338ecf;text-align:center;">Financial Institute Loan Details</h3> 
+                        <table  class="table table-responsive-md">
+                                <thead>
+                                        <tr>
+                                                <th><h4 style="color: black;">Loan Id</h4></th>
+                                                <th><h4 style="color: black;">Token Address</h4></th>
+                                                <th><h4 style="color: black;">token value</h4></th>
+                                                <th><h4 style="color: black;">Borrower Address</h4></th>
+                                                <th><h4 style="color: black;">Total Amount</h4></th>
+                                                <th><h4 style="color: black;">Total Paid Ins.</h4></th>
+                                                <th><h4 style="color: black;">Total Months</h4></th>
+                                                <th><h4 style="color: black;">Balance Loan</h4></th>
+                                                <th><h4 style="color: black;">Balance Installment</h4></th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        <tr *ngFor="let bank of loandetails;">
+                                                <td>{{bank.loanid}}</td>
+                                                <td>{{bank.tokenaddress}} </td>
+                                                <td>{{bank.tokenvalue}}</td>
+                                                <td>{{bank.borroweraddress}}</td>
+                                                <td>{{bank.totalamount}}</td>
+                                                <td>{{bank.totalpaidins}}</td>
+                                                <td>{{bank.totalmonth}}</td>
+                                                <td>{{bank.balanceloan}}</td>
+                                                <td>{{bank.balanceins}}</td>
+                                        </tr>
+                                </tbody>
+                        </table>
+                </div>
+        </div>  
+
+
+ 
+ 
+ 
+ 
+ 
+ 
