@@ -1,23 +1,9 @@
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-createpack',
-//   templateUrl: './createpack.component.html',
-//   styleUrls: ['./createpack.component.css']
-// })
-// export class CreatepackComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit() {
-//   }
-
-// }
-
 import { Component, OnInit } from '@angular/core';
 import {ContactserviceService}from '../service/contactservice.service';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Button } from 'protractor';
+import { Z_DEFAULT_STRATEGY } from 'zlib';
 @Component({
     selector: 'app-createpack',
     templateUrl: './createpack.component.html',
@@ -31,6 +17,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   public address: string;
   public spv_ether_value:number;
   public loanid=[];
+  public button;
   ids = [];
   details = [];
   detail = [];
@@ -59,8 +46,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   selectloan(loanid) {
     var ii=this.ids.length;
     var i;
-    // console.log(ii);
-    // console.log(this.ids[0]);
+    
     if(ii==0)
     {
       this.ids.push(loanid);
@@ -81,29 +67,28 @@ import { NgxSpinnerService } from 'ngx-spinner';
   }
 
   clear(a) 
-  {console.log("s");
+  {
     this.ids.length=0;
-    console.log(a=this.ids);
+    
     
    a=this.ids;
 
   }
   createPack(a)
   {
+    if(this.ids.length>0)
+    {
+      this.button=false;
     this.spinner.show();
     let value=a.split(",");
-    console.log(value);
-    
     
     for(var i=0;i <value.length;i++)
     {
-      console.log(value.length);
+      
       this.loanid.push(parseInt(value[i]))
     }
       this.spv.createPack(this.loanid).then((res)=>{
-        console.log("Hash :"+res);
-        console.log(res[0]);
-        console.log(res.length);
+        
         
         if(1===res.length)
           {  
@@ -112,12 +97,17 @@ import { NgxSpinnerService } from 'ngx-spinner';
           else
           this.spv.hash(res).then((result) =>
           {
-            console.log("result : "+ result );  
+            
             this.spinner.hide();
             this.router.navigate(['']);
           })
      });
-    
+    }
+    else
+    {
+      this.button=true;
+    }
+    this.button=false;
   }
   pur_loan(loanid,bankaddress)
   {
@@ -161,7 +151,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
               })
               this.spv.investortable1(this.address).then(result1=> { 
                 this.loan=result1[3];
-                console.log(result1[3])
+                
                  })
             }
       })

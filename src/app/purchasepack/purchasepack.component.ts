@@ -46,14 +46,7 @@ export class PurchasepackComponent implements OnInit  {
     inv.getAccount().then(address=>this.address=address);
   }
 
-  // inv_reg(){
-  //   alert("hai");
-  //  console.log(this.inves_ether);
-  //  this.inv.Investorether(this.inves_ether).then((res)=>{
-  //     alert("second")
-  //     console.log(res)
-  //  });
-  // }
+ 
 
   pur_pack(packid:number,address:string)
   {

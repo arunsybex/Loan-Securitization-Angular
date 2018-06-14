@@ -6,7 +6,7 @@
 <div><h3 style="color: #338ecf;text-align:center;">Create Pack</h3></div>
 <input type="text" [(ngModel)]="pack_id" #a value={{ids}}  class="form-control" placeholder="loan id" readonly/>
 <br>
-<input type="button" class="btn btn-primary"  (click)="createPack(a.value)" value="Create"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="button" [disabled]=button class="btn btn-primary" #b (click)="createPack(a.value)" value="Create"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <input type="button" class="btn btn-danger"  (click)="clear(a.value)" value="Clear"/>
 </div>
 </div>

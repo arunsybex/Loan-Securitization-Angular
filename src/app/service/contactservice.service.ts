@@ -15,7 +15,7 @@ export class ContactserviceService
   private _web3: any;
 
   private _tokenContract: any;
-  private _tokenContractAddress: string = "0xa0089b0167cfbde3e0f9a9684909a08f3ef6ed12"
+  private _tokenContractAddress: string = "0xcf576583222736b60d1de28d333c37f0ada3a7d9"
 
 constructor(private router:Router) 
 {
@@ -103,11 +103,10 @@ public async getAccount(): Promise<string>
           }    
           else
           {
-            console.log(meta.account);
-            console.log(result[9]);
+           
             if(result[9] === meta.account)
             {
-              console.log(result[9] === meta.account );
+              //console.log(result[9] === meta.account );
             }
           }  
           resolve(result[9] === meta.account);
@@ -127,11 +126,10 @@ public async getAccount(): Promise<string>
           }    
           else
           {
-            console.log(meta.account);
-            console.log(result[7]);
+            
             if(result[7] === meta.account)
             {
-              console.log(result[7] === meta.account );
+              //console.log(result[7] === meta.account );
             }
           }  
           resolve(result[7] === meta.account);
@@ -152,11 +150,10 @@ public async getAccount(): Promise<string>
           }    
           else
           {
-            console.log(meta.account);
-            console.log(result[8]);
+            
             if(result[8] === meta.account)
             {
-              console.log(result[8] === meta.account );
+              //console.log(result[8] === meta.account );
             }
           }  
           resolve(result[8] === meta.account);
@@ -231,7 +228,7 @@ public async getAccount(): Promise<string>
    public async register_bank1(a,b,c,d): Promise<any> {
     let account = await this.getAccount();
     let bb=b*100;
-    console.log("b value:"+b );
+    
     
     return new Promise((resolve, reject) => {
       let _web3 = this._web3;
@@ -239,10 +236,10 @@ public async getAccount(): Promise<string>
         if(err != null) 
         {
           //reject(err);
-          console.log(err);
+          
           resolve(0);
         }
-        console.log(result);
+        
         
        resolve(result);
       });
@@ -333,8 +330,7 @@ public async getAccount(): Promise<string>
           if(err != null) 
           {
             //reject(err);
-            console.log([0]);
-            
+           
             resolve([0]);
           
           }
@@ -551,7 +547,7 @@ public async getAccount(): Promise<string>
             if(result !== null)
             {
               clearInterval(accountInterval);
-              // console.log("obj 1 :"+result);
+            
     
               if(result.status == 0x1)
               {
