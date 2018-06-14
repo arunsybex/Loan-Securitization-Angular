@@ -25,3 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+#Token Address for Borrower  - 0xf4b30652f837b1e14b215a777cfdb78f59a27bc6
+#Metamask Seed - logic advice economy orbit gate snack crush cargo naive crawl destroy inherit
